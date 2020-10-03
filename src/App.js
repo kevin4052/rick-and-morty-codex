@@ -11,14 +11,14 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    const apiUrl = 'https://rickandmortyapi.com/api/character/1';
+    const apiUrl = 'https://rickandmortyapi.com/api/character/';
 
     axios.get(apiUrl)
       .then((response) => {
         console.log('This is your data', response.data);
 
         this.setState((state) => ({
-          charactors: [...state.charactors, response.data]
+          charactors: response.data.results
         }))
 
       });
